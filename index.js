@@ -4,7 +4,7 @@ function createElement (s) {
 }
 
 function extractEvents (e, o) {
-  ;['click'].forEach(name => {
+  ;['click'].forEach(function (name) {
     if (o[name]) {
       e.addEventListener(name, o[name])
       delete o[name]
@@ -14,11 +14,11 @@ function extractEvents (e, o) {
 
 function extractAttributes (e, o) {
   if (o['class']) {
-    o['class'].split(' ').forEach(c => e.classList.add(c))
+    o['class'].split(' ').forEach(function (c) { e.classList.add(c) })
     delete o['class']
   }
 
-  Object.keys(o).forEach(a => e[a] = o[a])
+  Object.keys(o).forEach(function (a) { e[a] = o[a] })
 }
 
 function addContent (e, c) {
@@ -27,7 +27,7 @@ function addContent (e, c) {
     return
   }
 
-  e.appendChild(c)
+  if (c instanceof Node) e.appendChild(c)
 }
 
 module.exports = function (selector, options, content) {

@@ -8,4 +8,8 @@ window.onload = function () {
       console.log('clicked')
     }
   }, x('b', 'BUMM')))
+
+  x('b')
+
+  x('b', {})
 }
