@@ -23,7 +23,7 @@ function extractAttributes (e, o) {
 
 function addContent (e, c) {
   if (typeof c === 'string') {
-    e.innerText = c
+    e.innerHTML = c
     return
   }
 
